@@ -8,7 +8,9 @@ const Leads = () => {
   const leads = useSelector((state) => state?.leads?.leads);
   const leadStatus = useSelector((state) => state?.leads?.status);
   useEffect(() => {
-    dispatch(getAllLeads());
+    if(leads.length === 0 || !leads){
+      dispatch(getAllLeads());
+    }
   },[dispatch, leads?.length]);
 
   const handleDeleteLead = (leadId) => {

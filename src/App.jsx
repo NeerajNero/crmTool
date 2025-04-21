@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import LeadDetails from './pages/LeadDetails'
 import LeadsPage from './pages/LeadsPage'
 import { Toaster } from 'react-hot-toast'
+import AgentViewPage from './pages/AgentViewPage'
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path='/login' element= {<Navigate to = '/'/>} />
           <Route path='/leadDetails/:leadId' element={<LeadDetails />} />
           <Route path='/leadsPage' element={<LeadsPage />} />
+          <Route path='/agentPage' element={<AgentViewPage />} />
         </Route>
       </Routes>
       </Layout>

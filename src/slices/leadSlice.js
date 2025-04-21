@@ -4,6 +4,7 @@ import axios from 'axios'
 const initialState = {
     leads : [],
     currentLead : null,
+    agentLeads: [],
     error: null,
     status: "idle"
 }
@@ -25,6 +26,12 @@ export const getLeadById = createAsyncThunk('get lead by id', async({leadId}) =>
 
 export const deleteLead = createAsyncThunk('/DeleteLead', async({leadId}) => {
     const response = await axios.delete(`http://localhost:5000/lead/deleteLead/${leadId}`, {withCredentials: true})
+    console.log(response.data)
+    return response.data
+})
+
+export const getLeadsByAgentId = createAsyncThunk('/GetLeadsByAgent', async({agentId}) => {
+    const response = await axios.get(`http://localhost:5000/lead/getLeadsByAgent/${agentId}`, {withCredentials: true})
     console.log(response.data)
     return response.data
 })
@@ -79,6 +86,18 @@ const leadSlice = createSlice({
             state.leads = state.leads.filter((lead) => lead._id !== action.payload.leadId)
         })
         .addCase(deleteLead.rejected, (state,action) => {
+            state.status = "Failed",
+            state.error = action.error.message
+        })
+        builder
+        .addCase(getLeadsByAgentId.pending, (state) => {
+            state.status = "Loading"
+        })
+        .addCase(getLeadsByAgentId.fulfilled, (state,action) => {
+            state.status = "successfull"
+            state.agentLeads = action.payload.leads
+        })
+        .addCase(getLeadsByAgentId.rejected, (state,action) => {
             state.status = "Failed",
             state.error = action.error.message
         })
