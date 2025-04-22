@@ -26,7 +26,7 @@ const Signup = () => {
     }
   return (
     <div className='container'>
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center vh-100 align-items-center'>
         <div className='col-md-4'>
         <h1>Signup</h1>
         <form onSubmit={handleSignup}>

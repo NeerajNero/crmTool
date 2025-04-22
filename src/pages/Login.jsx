@@ -25,7 +25,7 @@ const Login = () => {
     }
   return (
     <div className='container'>
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center align-items-center vh-100'>
         <div className='col-md-4'>
         <h1>Login</h1>
         <form onSubmit={handleLogin}>

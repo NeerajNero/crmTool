@@ -69,8 +69,8 @@ const handleAddComment = () => {
                 {commentStatus === "Loading" && <p>Loading...</p>}
                 <ul className='list-group'>
                 {comments.length > 0 ? comments.map((comment) => <li key={comment._id} className='list-group-item'>{comment.commentText} 
-                    <p className='text-body-tertiary'>Updated by : {comment.author.name} - at - 
-                        {new Date(comment.createdAt).toLocaleTimeString()} - 
+                    <p className='text-body-tertiary'>Updated by : {comment.author.name} - at - {" "}
+                        {new Date(comment.createdAt).toLocaleTimeString()} - {" "}
                         {new Date(comment.createdAt).toLocaleDateString()}</p></li>) : <p className='text-body-tertiary'>No comments yet..</p>}
                 </ul>
             </div>

@@ -18,13 +18,13 @@ const LeadsPage = () => {
       dispatch(getAllLeads())
     }
     setFilteredData(leadsData)
-  },[leadsData, dispatch])
+  },[leadsData?.length, dispatch])
 
   useEffect(() => {
     if(allAgents.length === 0 || !allAgents){
       dispatch(getAgents())
     }
-  },[allAgents,dispatch])
+  },[allAgents?.length,dispatch])
 
  /* const handleFilter = (e) => {
     setFilteredData((prevData) => prevData.filter((data) => data?.salesAgent?.name === e.target.value)) 
@@ -62,14 +62,14 @@ const LeadsPage = () => {
         <div>
           <label className='me-3'>Filter by Agent: </label>
           <select className='form-select' onChange={(e) => setFilteredDataByAgentName(e.target.value)}>
-          <option hidden>Select Any One</option>
+          <option default hidden>Select Any One</option>
             {allAgents?.map((agent) => <option key={agent._id} value={agent.name}>{agent.name}</option>)}
           </select>
         </div>
         <div>
           <label className='mx-3'>Filter by Priority: </label>
           <select className='form-select' onChange={(e) => setFilteredDataByPriority(e.target.value)}>
-            <option hidden>Select Any One</option>
+            <option default hidden>Select Any One</option>
             <option value='Low'>Low</option>
             <option value='Medium'>Medium</option>
             <option value='High'>High</option>
@@ -78,7 +78,7 @@ const LeadsPage = () => {
         <div>
           <label className='mx-3'>Filter by Status: </label>
           <select className='form-select' onChange={(e) => setFilteredDataByStatus(e.target.value)}>
-            <option hidden>Select Any One</option>
+            <option default hidden>Select Any One</option>
             <option value='New'>New</option>
             <option value='Contacted'>Contacted</option>
             <option value='Qualified'>Qualified</option>

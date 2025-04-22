@@ -16,7 +16,6 @@ const AgentViewPage = () => {
             dispatch(getLeadsByAgentId({agentId}))
         }
     },[dispatch, leads?.length])
-    console.log(leads)
   return (
     <div className="container">
         <div className="mt-3">
@@ -25,7 +24,7 @@ const AgentViewPage = () => {
             <div>
             <label className='mx-3'>Filter by Status: </label>
           <select className='form-select' onChange={(e) => setFilteredDataByStatus(e.target.value)}>
-            <option hidden>Select Any One</option>
+            <option default hidden>Select Any One</option>
             <option value='New'>New</option>
             <option value='Contacted'>Contacted</option>
             <option value='Qualified'>Qualified</option>
@@ -36,7 +35,7 @@ const AgentViewPage = () => {
             <div>
             <label className='mx-3'>Filter by Priority: </label>
           <select className='form-select' onChange={(e) => setFilteredDataByPriority(e.target.value)}>
-            <option hidden>Select Any One</option>
+            <option default hidden>Select Any One</option>
             <option value='Low'>Low</option>
             <option value='Medium'>Medium</option>
             <option value='High'>High</option>
