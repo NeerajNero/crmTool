@@ -16,6 +16,7 @@ export const getAllLeads = createAsyncThunk('getLeads', async() => {
 
 export const createLead = createAsyncThunk('Create new Lead', async({name,source,salesAgent,status,tags,timeToClose,priority}) => {
     const response = await axios.post('http://localhost:5000/lead/createLead',{name,source,salesAgent,status,tags,timeToClose,priority}, {withCredentials: true})
+    console.log(response.data)
     return response.data
 })
 
@@ -32,6 +33,11 @@ export const deleteLead = createAsyncThunk('/DeleteLead', async({leadId}) => {
 
 export const getLeadsByAgentId = createAsyncThunk('/GetLeadsByAgent', async({agentId}) => {
     const response = await axios.get(`http://localhost:5000/lead/getLeadsByAgent/${agentId}`, {withCredentials: true})
+    return response.data
+})
+
+export const closeLead = createAsyncThunk('/closeLead', async({leadId, status}) => {
+    const response = await axios.patch(`http://localhost:5000/lead/updateLead/${leadId}`, {status}, {withCredentials: true})
     console.log(response.data)
     return response.data
 })
@@ -98,6 +104,18 @@ const leadSlice = createSlice({
             state.agentLeads = action.payload.leads
         })
         .addCase(getLeadsByAgentId.rejected, (state,action) => {
+            state.status = "Failed",
+            state.error = action.error.message
+        })
+        builder
+        .addCase(closeLead.pending, (state) => {
+            state.status = "Loading"
+        })
+        .addCase(closeLead.fulfilled, (state,action) => {
+            state.agentLeads = state.agentLeads.map((stateLead) => stateLead._id === action.payload.lead._id ? {...stateLead, status: "Closed" } : stateLead)
+            state.status = "successfull"
+        })
+        .addCase(closeLead.rejected, (state,action) => {
             state.status = "Failed",
             state.error = action.error.message
         })

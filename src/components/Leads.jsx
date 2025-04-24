@@ -7,6 +7,7 @@ const Leads = () => {
   const dispatch = useDispatch();
   const leads = useSelector((state) => state?.leads?.leads);
   const leadStatus = useSelector((state) => state?.leads?.status);
+  
   useEffect(() => {
     if(leads.length === 0 || !leads){
       dispatch(getAllLeads());
@@ -39,7 +40,7 @@ const Leads = () => {
                   </div>
                   <div className="d-flex gap-2 flex-wrap">
                   <Link className="btn btn-primary" to={`/leadDetails/${lead._id}`} state={{lead}}>More Details</Link>
-                  <Link className="btn btn-primary">Update Lead</Link>
+                  <Link to='/updateLead' className="btn btn-primary">Update Lead</Link>
                   <button onClick={() => handleDeleteLead(lead._id)} className="btn btn-danger">Delete Lead</button>
                   </div>
                 </div>

@@ -49,7 +49,7 @@ const handleAddComment = () => {
     }
 }
   return (
-    <div className='container'>
+    <div className='ms-5'>
         <div>
             <h3>Lead Details</h3>
             <hr/>
@@ -67,7 +67,7 @@ const handleAddComment = () => {
             <div>
                 <p><strong>Comments</strong></p>
                 {commentStatus === "Loading" && <p>Loading...</p>}
-                <ul className='list-group'>
+                <ul className='list-group col-md-4'>
                 {comments.length > 0 ? comments.map((comment) => <li key={comment._id} className='list-group-item'>{comment.commentText} 
                     <p className='text-body-tertiary'>Updated by : {comment.author.name} - at - {" "}
                         {new Date(comment.createdAt).toLocaleTimeString()} - {" "}

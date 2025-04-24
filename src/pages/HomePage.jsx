@@ -4,7 +4,7 @@ import CreateLead from "../components/CreateLead";
 
 const HomePage = () => {
   return (
-    <div className="container">
+    <div className="ms-5">
       <div className="my-3">
         <div className="d-flex gap-3">
           <h3>Dashboard</h3> 

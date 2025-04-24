@@ -4,7 +4,7 @@ import { useState } from 'react'
 import {login} from '../slices/userSlice'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({setIsLoggedIn}) => {
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
@@ -20,6 +20,7 @@ const Login = () => {
         dispatch(login({email,password})).unwrap().then(() => {
             localStorage.setItem("isLoggedIn", true)
             console.log("Login successfull")
+            setIsLoggedIn('true');
             navigate('/')
         })
     }

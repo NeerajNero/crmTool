@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
-const Signup = () => {
+const Signup = ({setIsLoggedIn}) => {
     const [name,setName] = useState('')
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -21,6 +21,7 @@ const Signup = () => {
         dispatch(signup({name,email,password})).unwrap().then(() => {
             localStorage.setItem("isLoggedIn", true)
             console.log("signup successfull")
+            setIsLoggedIn('true');
             navigate('/')
         })
     }

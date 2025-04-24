@@ -56,7 +56,7 @@ const LeadsPage = () => {
     setFilteredDataByStatus(null)
   }
   return (
-    <div className='container'>
+    <div className='ms-5'>
       <h3 className='mt-3'>Filter</h3>
       <div className='d-flex my-3 gap-3 align-items-center'>
         <div>
@@ -86,7 +86,9 @@ const LeadsPage = () => {
             <option value='Closed'>Closed</option>
           </select>
         </div>
-        <button className='btn btn-secondary mx-3' style={{'height': '2.5rem'}} onClick={handleClear}>Clear</button>
+        <div className='d-flex align-self-end'>
+        <button className='btn btn-secondary' onClick={handleClear}>Clear</button>
+        </div>
       </div>
       <h4>All Leads ({filteredData.length})</h4>
     <div>
@@ -108,7 +110,7 @@ const LeadsPage = () => {
                   </div>
                   <div className="d-flex gap-2 flex-wrap">
                   <Link className="btn btn-primary" to={`/leadDetails/${lead._id}`} state={{lead}}>More Details</Link>
-                  <Link className="btn btn-primary">Update Lead</Link>
+                  <Link to='/updateLead' className="btn btn-primary">Update Lead</Link>
                   <button onClick={() => handleDeleteLead(lead._id)} className="btn btn-danger">Delete Lead</button>
                   </div>
                 </div>
