@@ -40,7 +40,7 @@ const Leads = () => {
                   </div>
                   <div className="d-flex gap-2 flex-wrap">
                   <Link className="btn btn-primary" to={`/leadDetails/${lead._id}`} state={{lead}}>More Details</Link>
-                  <Link to='/updateLead' className="btn btn-primary">Update Lead</Link>
+                  <Link to='/updateLead' state={{lead}} className="btn btn-primary">Update Lead</Link>
                   <button onClick={() => handleDeleteLead(lead._id)} className="btn btn-danger">Delete Lead</button>
                   </div>
                 </div>

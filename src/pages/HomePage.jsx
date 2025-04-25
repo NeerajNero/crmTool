@@ -10,6 +10,7 @@ const HomePage = () => {
           <h3>Dashboard</h3> 
           <CreateLead />
         </div>
+        <hr/>
         <Leads />
       </div>
     </div>

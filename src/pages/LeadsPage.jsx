@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllLeads } from '../slices/leadSlice'
 import { getAgents } from '../slices/userSlice'
 import { Link } from 'react-router-dom'
+import { deleteLead } from '../slices/leadSlice'
 const LeadsPage = () => {
   const dispatch = useDispatch()
   const leadsData = useSelector((state) => state?.leads?.leads)
@@ -55,6 +56,10 @@ const LeadsPage = () => {
     setFilteredDataByPriority(null)
     setFilteredDataByStatus(null)
   }
+
+  const handleDeleteLead = (leadId) => {
+      dispatch(deleteLead({leadId}))
+    }
   return (
     <div className='ms-5'>
       <h3 className='mt-3'>Filter</h3>
@@ -110,7 +115,7 @@ const LeadsPage = () => {
                   </div>
                   <div className="d-flex gap-2 flex-wrap">
                   <Link className="btn btn-primary" to={`/leadDetails/${lead._id}`} state={{lead}}>More Details</Link>
-                  <Link to='/updateLead' className="btn btn-primary">Update Lead</Link>
+                  <Link to='/updateLead' state={{lead}} className="btn btn-primary">Update Lead</Link>
                   <button onClick={() => handleDeleteLead(lead._id)} className="btn btn-danger">Delete Lead</button>
                   </div>
                 </div>

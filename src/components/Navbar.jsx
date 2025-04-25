@@ -29,7 +29,7 @@ const Navbar = () => {
             <Link className="nav-link text-dark" to="/agentPage">My Leads</Link>
           </li>
           <li className="nav-item mb-2">
-            <a className="nav-link text-dark" href="#">Report</a>
+            <Link className="nav-link text-dark" to='/report'>Report</Link>
           </li>
           <li className="nav-item mb-2">
             <a className="nav-link text-dark" href="#">About us</a>

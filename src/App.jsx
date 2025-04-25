@@ -3,6 +3,8 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
+{/* todo ------ agentLeads has to be updated along with leads if any changes are made also vice versa */}
+
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import HomePage from './pages/HomePage';
@@ -13,6 +15,7 @@ import LeadsPage from './pages/LeadsPage';
 import AgentViewPage from './pages/AgentViewPage';
 import { Toaster } from 'react-hot-toast';
 import UpdateLead from './pages/UpdateLead';
+import ReportPage from './pages/ReportPage';
 
 function Layout({ children }) {
   const location = useLocation();
@@ -57,6 +60,7 @@ function App() {
             <Route path="/leadsPage" element={<LeadsPage />} />
             <Route path="/agentPage" element={<AgentViewPage />} />
             <Route path="/updateLead" element={<UpdateLead />}/>
+            <Route path="/report" element={<ReportPage />} />
 
             {/* Prevent logged in users from seeing login/signup again */}
             <Route path="/signup" element={<Navigate to="/" />} />

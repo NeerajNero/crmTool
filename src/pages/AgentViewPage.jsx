@@ -42,6 +42,11 @@ const AgentViewPage = () => {
       const status = "Closed"
       dispatch(closeLead({leadId: lead._id,status})).unwrap().then(() => console.log("status updated"))
     }
+
+    const handleClear = () => {
+      setFilteredDataByPriority(null)
+      setFilteredDataByStatus(null)
+    }
     console.log(stateLeads)
     console.log(leads)
   return (
@@ -70,13 +75,13 @@ const AgentViewPage = () => {
           </select>
             </div>
             <div className="d-flex align-self-end">
-            <button className="btn btn-secondary">clear</button>
+            <button onClick={handleClear} className="btn btn-secondary">clear</button>
             </div>
         </div>
         </div>
         <hr/>
         <div className="my-3">
-        <h3>All Leads</h3>
+        <h3>All Leads ({leads?.length})</h3>
             <div className="my-3">
                 {status === "Loading" && <p>Loading...</p>}
                 <div className="list-group col-md-5 ">

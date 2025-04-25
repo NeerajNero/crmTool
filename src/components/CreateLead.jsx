@@ -95,8 +95,8 @@ const CreateLead = () => {
                     <label>Status:</label>
                     <select className="form-control" onChange={(e) => setStatus(e.target.value)}>
                       <option defaultValue value='New'>New</option>
-                      <option value='Contacted'>Qualified</option>
-                      <option value='Qualified'>Contacted</option>
+                      <option value='Contacted'>Contacted</option>
+                      <option value='Qualified'>Qualified</option>
                       <option value='Proposal Sent'>Proposal Sent</option>
                       <option value='Closed'>Closed</option>
                     </select>
