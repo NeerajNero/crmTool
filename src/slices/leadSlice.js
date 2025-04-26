@@ -11,39 +11,39 @@ const initialState = {
 }
 
 export const getAllLeads = createAsyncThunk('getLeads', async() => {
-    const response = await axios.get('http://localhost:5000/lead/getLeads', {withCredentials: true})
+    const response = await axios.get('https://my-crm-backend-gamma.vercel.app/lead/getLeads', {withCredentials: true})
     return response.data
 })
 
 export const createLead = createAsyncThunk('Create new Lead', async({name,source,salesAgent,status,tags,timeToClose,priority}) => {
-    const response = await axios.post('http://localhost:5000/lead/createLead',{name,source,salesAgent,status,tags,timeToClose,priority}, {withCredentials: true})
+    const response = await axios.post('https://my-crm-backend-gamma.vercel.app/lead/createLead',{name,source,salesAgent,status,tags,timeToClose,priority}, {withCredentials: true})
     return response.data
 })
 
 export const getLeadById = createAsyncThunk('get lead by id', async({leadId}) => {
-    const response = await axios.get(`http://localhost:5000/lead/getLeadById/${leadId}`, {withCredentials: true})
+    const response = await axios.get(`https://my-crm-backend-gamma.vercel.app/lead/getLeadById/${leadId}`, {withCredentials: true})
     return response.data
 })
 
 export const deleteLead = createAsyncThunk('/DeleteLead', async({leadId}) => {
-    const response = await axios.delete(`http://localhost:5000/lead/deleteLead/${leadId}`, {withCredentials: true})
+    const response = await axios.delete(`https://my-crm-backend-gamma.vercel.app/lead/deleteLead/${leadId}`, {withCredentials: true})
     console.log(response.data)
     return response.data
 })
 
 export const getLeadsByAgentId = createAsyncThunk('/GetLeadsByAgent', async({agentId}) => {
-    const response = await axios.get(`http://localhost:5000/lead/getLeadsByAgent/${agentId}`, {withCredentials: true})
+    const response = await axios.get(`https://my-crm-backend-gamma.vercel.app/lead/getLeadsByAgent/${agentId}`, {withCredentials: true})
     return response.data
 })
 
 export const closeLead = createAsyncThunk('/closeLead', async({leadId, status}) => {
-    const response = await axios.patch(`http://localhost:5000/lead/closeLead/${leadId}`, {status}, {withCredentials: true})
+    const response = await axios.patch(`https://my-crm-backend-gamma.vercel.app/lead/closeLead/${leadId}`, {status}, {withCredentials: true})
     console.log(response.data)
     return response.data
 })
 
 export const updateLead = createAsyncThunk('/updateLead', async({leadId, leadFormData}) => {
-    const response = await axios.put(`http://localhost:5000/lead/updateLead/${leadId}`, {leadFormData}, {withCredentials: true})
+    const response = await axios.put(`https://my-crm-backend-gamma.vercel.app/lead/updateLead/${leadId}`, {leadFormData}, {withCredentials: true})
     return response.data
 })
 

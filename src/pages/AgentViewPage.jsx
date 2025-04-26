@@ -81,7 +81,7 @@ const AgentViewPage = () => {
         </div>
         <hr/>
         <div className="my-3">
-        <h3>All Leads ({leads?.length})</h3>
+        <h3>My Leads ({leads?.length})</h3>
             <div className="my-3">
                 {status === "Loading" && <p>Loading...</p>}
                 <div className="list-group col-md-5 ">

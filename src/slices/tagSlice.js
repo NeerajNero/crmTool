@@ -8,7 +8,7 @@ const initialState = {
 }
 
 export const getTags = createAsyncThunk('TAGS', async() => {
-    const response = await axios.get('http://localhost:5000/tag/tags', {withCredentials: true})
+    const response = await axios.get('https://my-crm-backend-gamma.vercel.app/tag/tags', {withCredentials: true})
     console.log(response.data)
     return response.data
 })

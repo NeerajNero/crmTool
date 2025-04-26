@@ -12,31 +12,31 @@ const initialState = {
 }
 
 export const signup = createAsyncThunk('signup', async({name,email,password}) => {
-    const {data} = await axios.post('http://localhost:5000/api/signup', {name,email,password}, {withCredentials: true})
+    const {data} = await axios.post('https://my-crm-backend-gamma.vercel.app/api/signup', {name,email,password}, {withCredentials: true})
     console.log(data)
     return data
 })
 
 export const login = createAsyncThunk('login', async({email,password}) => {
-    const {data} = await axios.post('http://localhost:5000/api/login', {email,password}, {withCredentials: true})
+    const {data} = await axios.post('https://my-crm-backend-gamma.vercel.app/api/login', {email,password}, {withCredentials: true})
     console.log(data)
     return data
 })
 
 export const getAgents = createAsyncThunk('GetOnlyAgents', async() => {
-    const response = await axios.get('http://localhost:5000/api/agents', {withCredentials: true})
+    const response = await axios.get('https://my-crm-backend-gamma.vercel.app/api/agents', {withCredentials: true})
     console.log(response.data)
     return response.data
 })
 
 export const getCurrentUser = createAsyncThunk('getCurrentUser', async({userID}) => {
-    const response = await axios.get(`http://localhost:5000/api/currentUser/${userID}`, {withCredentials: true})
+    const response = await axios.get(`https://my-crm-backend-gamma.vercel.app/api/currentUser/${userID}`, {withCredentials: true})
     console.log(response.data)
     return response.data
 }) 
 
 export const logout = createAsyncThunk('/Logout', async() => {
-    const response = await axios.post('http://localhost:5000/api/logout',{}, {withCredentials:true})
+    const response = await axios.post('https://my-crm-backend-gamma.vercel.app/api/logout',{}, {withCredentials:true})
     return response.data
 })
 

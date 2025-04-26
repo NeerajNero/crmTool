@@ -8,12 +8,12 @@ const initialState = {
 }
 
 export const addComment = createAsyncThunk('/addComment', async({lead,author,commentText}) => {
-    const response = await axios.post('http://localhost:5000/comment/addComment', {lead,author,commentText}, {withCredentials: true})
+    const response = await axios.post('https://my-crm-backend-gamma.vercel.app/comment/addComment', {lead,author,commentText}, {withCredentials: true})
     return response.data
 })
 
 export const getComments = createAsyncThunk('/getComments', async({leadId}) => {
-    const response = await axios.get(`http://localhost:5000/comment/getAllComments/${leadId}`, {withCredentials: true})
+    const response = await axios.get(`https://my-crm-backend-gamma.vercel.app/comment/getAllComments/${leadId}`, {withCredentials: true})
     return response.data
 })
 
